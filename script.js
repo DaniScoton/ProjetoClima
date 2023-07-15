@@ -39,6 +39,16 @@ document.querySelector('.busca').addEventListener('submit', async (event)=>{
     
     document.querySelector('.ventoPonto').style.transform = `rotate(${json.windAngle-90}deg)`;
     document.querySelector('.resultado').style.display = 'block';
+    
+    var img = document.getElementById('img-clima');
+
+    if(parseFloat(json.temp) < 10){
+      img.src = "imagens/snowman.png"
+    } else if(parseFloat(json.temp) >= 10 && parseFloat(json.temp) <= 20){
+      img.src = "imagens/nuvem.png"
+    }else{
+      img.src = "imagens/sol.png"
+    }
   }
   
   function clearInfo(){
